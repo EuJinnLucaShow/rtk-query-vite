@@ -43,11 +43,13 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
-  cursor: pointer;
+
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
+
+button:not(:disabled):hover {
+  cursor: pointer;
+  border-color: mediumorchid;
 }
 
 @media (prefers-color-scheme: light) {
