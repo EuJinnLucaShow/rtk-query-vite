@@ -15,10 +15,12 @@ function App() {
 
   const handleTimeChange = event => {
     setTrendingTime(event.target.value);
+    setPage(1);
   };
 
   const handleTypeChange = event => {
     setTypeMedia(event.target.value);
+    setPage(1);
   };
 
   return (
