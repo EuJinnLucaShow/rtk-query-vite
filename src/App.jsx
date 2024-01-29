@@ -1,14 +1,16 @@
 import { useState } from 'react';
 
-import { useGetThemoviByTimeQuery } from './services/themoviedb';
+import { useGetTrendingQuery } from './services/themoviedb';
 import './App.css';
 
 function App() {
+  const [page, setPage] = useState(1);
   const [typeMedia, setTypeMedia] = useState('all');
   const [trendingTime, setTrendingTime] = useState('day');
-  const { data, error, isLoading } = useGetThemoviByTimeQuery({
-    time: trendingTime,
+  const { data, error, isLoading } = useGetTrendingQuery({
     type: typeMedia,
+    time: trendingTime,
+    page: page,
   });
 
   const handleTimeChange = event => {
@@ -66,6 +68,17 @@ function App() {
           </ul>
         </>
       ) : null}
+      <div className="Button-wrapper">
+        <button onClick={() => setPage(page - 1)} disabled={page === 1}>
+          Previous
+        </button>
+        <button
+          onClick={() => setPage(page + 1)}
+          disabled={page === data.total_pages}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 }
