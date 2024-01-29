@@ -74,7 +74,7 @@ function App() {
         </button>
         <button
           onClick={() => setPage(page + 1)}
-          disabled={page === data.total_pages}
+          disabled={page === data?.total_pages}
         >
           Next
         </button>
